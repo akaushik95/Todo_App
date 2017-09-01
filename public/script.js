@@ -110,15 +110,15 @@ function createTodoElement(id, todo_object) {
     todo_element.setAttribute("class", "todoStatus"+ todo_object.status + " " + "breathVertical");
     todo_box.appendChild(todo_element);
 
-    // if(todo_object.status != "DELETED"){
-    //     delete_button = document.createElement("button");
-    //     delete_button.setAttribute("class", "btn btn-default");
-    //     delete_button.setAttribute("onclick", "deleteTodoAJAX("+id+")");
-    //     var del_span = document.createElement("span");
-    //     del_span.setAttribute("class", "glyphicon glyphicon-remove");
-    //     delete_button.appendChild(del_span);
-    //     todo_box.appendChild(delete_button);
-    // }
+    if(todo_object.status != "DELETED"){
+        delete_button = document.createElement("button");
+        delete_button.setAttribute("class", "btn btn-default");
+        delete_button.setAttribute("onclick", "deleteTodoAJAX("+id+")");
+        var del_span = document.createElement("span");
+        del_span.setAttribute("class", "glyphicon glyphicon-remove");
+        delete_button.appendChild(del_span);
+        todo_box.appendChild(delete_button);
+    }
     return todo_box;
 }
 
