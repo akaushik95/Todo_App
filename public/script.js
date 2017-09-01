@@ -86,24 +86,23 @@ function addTodoElements(id, todos_data_json){
 function createTodoElement(id, todo_object) {
     var todo_box = document.createElement("div");
     todo_box.setAttribute("display", "inline");
-    // todo_box.setAttribute("white-space"), "pre-wrap"
-    // if(todo_object.status == "ACTIVE"){
-    //     complete_checkbox = document.createElement("input");
-    //     complete_checkbox.setAttribute("type", "checkbox");
-    //     complete_checkbox.setAttribute("value", "");
-    //     complete_checkbox.setAttribute("onclick", "completeTodoAJAX("+id+")");
-    //     complete_checkbox.style.background = "blue";
-    //     todo_box.appendChild(complete_checkbox);
-    // }
-    // if(todo_object.status =="COMPLETED"){
-    //     complete_checkbox = document.createElement("input");
-    //     complete_checkbox.setAttribute("type", "checkbox");
-    //     complete_checkbox.setAttribute("value", "");
-    //     complete_checkbox.setAttribute("checked", "true");
-    //     complete_checkbox.setAttribute("onclick", "completeTodoAJAX("+id+")");
-    //     complete_checkbox.setAttribute("color", "blue");
-    //     todo_box.appendChild(complete_checkbox);
-    // }
+    if(todo_object.status == "ACTIVE"){
+        complete_checkbox = document.createElement("input");
+        complete_checkbox.setAttribute("type", "checkbox");
+        complete_checkbox.setAttribute("value", "");
+        complete_checkbox.setAttribute("onclick", "completeTodoAJAX("+id+")");
+        complete_checkbox.style.background = "blue";
+        todo_box.appendChild(complete_checkbox);
+    }
+    if(todo_object.status =="COMPLETED"){
+        complete_checkbox = document.createElement("input");
+        complete_checkbox.setAttribute("type", "checkbox");
+        complete_checkbox.setAttribute("value", "");
+        complete_checkbox.setAttribute("checked", "true");
+        complete_checkbox.setAttribute("onclick", "completeTodoAJAX("+id+")");
+        complete_checkbox.setAttribute("color", "blue");
+        todo_box.appendChild(complete_checkbox);
+    }
     var todo_element = document.createElement("label");
     todo_element.innerText = todo_object.title;
     todo_element.setAttribute("data-id", id);   // setting a custom attribute
