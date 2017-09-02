@@ -181,36 +181,36 @@ function deleteTodoAJAX(id) {
     refreshTodos();
 };
 
-// function hideCompletedTodos() {
-//     var x = document.getElementById("todos_list_div_completed");
-//     if (x.style.display === 'none') {
-//         x.style.display = 'block';
-//         var hide_completed_todos = document.getElementById("hide_completed_todos");
-//         hide_completed_todos.innerText = "Hide Completed Items";
-//         hide_completed_todos.style.textDecoration = "underline";
-//         hide_completed_todos.style.color = "blue;"
-//     } else {
-//         x.style.display = 'none';
-//         var hide_completed_todos = document.getElementById("hide_completed_todos");
-//         hide_completed_todos.innerText = "Show Completed Items";
-//         hide_completed_todos.style.textDecoration = "underline";
-//         hide_completed_todos.style.color = "blue"
-//     }
-// };
-//
-// function hideDeletedTodos() {
-//     var x = document.getElementById("todos_list_div_deleted");
-//     if (x.style.display === 'none') {
-//         x.style.display = 'block';
-//         var hide_completed_todos = document.getElementById("hide_deleted_todos");
-//         hide_completed_todos.innerText = "Hide Deleted Items";
-//         hide_completed_todos.style.textDecoration = "underline";
-//         hide_completed_todos.style.color = "blue;"
-//     } else {
-//         x.style.display = 'none';
-//         var hide_completed_todos = document.getElementById("hide_deleted_todos");
-//         hide_completed_todos.innerText = "Show Deleted Items";
-//         hide_completed_todos.style.textDecoration = "underline";
-//         hide_completed_todos.style.color = "blue"
-//     }
-// };
+function hideCompletedTodos() {
+    var x = document.getElementById("todos_list_div_completed");
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+        var hide_completed_todos = document.getElementById("hide_completed_todos");
+        hide_completed_todos.innerText = "Hide Completed Items";
+        hide_completed_todos.style.textDecoration = "underline";
+        hide_completed_todos.style.color = "blue;"
+    } else {
+        x.style.display = 'none';
+        var hide_completed_todos = document.getElementById("hide_completed_todos");
+        hide_completed_todos.innerText = "Show Completed Items";
+        hide_completed_todos.style.textDecoration = "underline";
+        hide_completed_todos.style.color = "blue"
+    }
+};
+
+function hideDeletedTodos() {
+    var x = document.getElementById("todos_list_div_deleted");
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+        var hide_completed_todos = document.getElementById("hide_deleted_todos");
+        hide_completed_todos.innerText = "Hide Deleted Items";
+        hide_completed_todos.style.textDecoration = "underline";
+        hide_completed_todos.style.color = "blue;"
+    } else {
+        x.style.display = 'none';
+        var hide_completed_todos = document.getElementById("hide_deleted_todos");
+        hide_completed_todos.innerText = "Show Deleted Items";
+        hide_completed_todos.style.textDecoration = "underline";
+        hide_completed_todos.style.color = "blue"
+    }
+};
