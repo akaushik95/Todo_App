@@ -1,7 +1,7 @@
 # Todo App 
 
 # Features Built :
-  # Backend endpoints :
+  Backend endpoints :
     1. GET /api/todos
     2. POST /api/todos
     3. PUT /api/todos
@@ -12,7 +12,7 @@
     8. PUT /api/todos/complete/:id
     9. PUT /api/todos/active/:id
     
-  # Frontend :
+  Frontend :
     A html page to show Active, Completed and Deleted todos. The user can also add a new todo from the page. 
     
 # Features not built :
