@@ -6,8 +6,6 @@ const TODOS_LIST_ID_COMPLETED = "todos_list_div_completed";
 const TODOS_LIST_ID_DELETED = "todos_list_div_deleted";
 const NEW_TODO_INPUT_ID = "new_todo_input";
 
-// window.onload = getTodosAJAX();
-
 function refreshTodos(){
     getActiveTodosAJAX();
     getCompletedTodosAJAX();
@@ -84,8 +82,25 @@ function addTodoElements(id, todos_data_json){
 }
 
 function createTodoElement(id, todo_object) {
+
     var todo_box = document.createElement("div");
-    todo_box.setAttribute("display", "inline");
+    todo_box.setAttribute("class", "container");
+
+    var todo_box_row = document.createElement("div");
+    todo_box_row.setAttribute("class", "row");
+    todo_box.appendChild(todo_box_row);
+
+    var todo_box_row_1 = document.createElement("div");
+    todo_box_row_1.setAttribute("class", "col-sm-3");
+
+    var todo_box_row_2 = document.createElement("div");
+    todo_box_row_2.setAttribute("class", "col-sm-3");
+
+    var todo_box_row_3 = document.createElement("div");
+    todo_box_row_3.setAttribute("class", "col-sm-3");
+
+    var todo_box_row_4 = document.createElement("div");
+    todo_box_row_3.setAttribute("class", "col-sm-3");
 
     if(todo_object.status == "ACTIVE"){
         complete_checkbox = document.createElement("input");
@@ -93,23 +108,24 @@ function createTodoElement(id, todo_object) {
         complete_checkbox.setAttribute("value", "");
         complete_checkbox.setAttribute("onclick", "completeTodoAJAX("+id+")");
         complete_checkbox.style.background = "blue";
-        todo_box.appendChild(complete_checkbox);
+        todo_box_row_1.appendChild(complete_checkbox);
     }
     if(todo_object.status =="COMPLETED"){
         complete_checkbox = document.createElement("input");
         complete_checkbox.setAttribute("type", "checkbox");
         complete_checkbox.setAttribute("value", "");
         complete_checkbox.setAttribute("checked", "true");
+        complete_checkbox.setAttribute("disabled", "true");
         complete_checkbox.setAttribute("onclick", "completeTodoAJAX("+id+")");
         complete_checkbox.setAttribute("color", "blue");
-        todo_box.appendChild(complete_checkbox);
+        todo_box_row_1.appendChild(complete_checkbox);
     }
     var todo_element = document.createElement("label");
     todo_element.innerText = todo_object.title;
     todo_element.setAttribute("data-id", id);   // setting a custom attribute
     todo_element.setAttribute("class", "todoStatus"+todo_object.status);
     todo_element.setAttribute("class", "todoStatus"+ todo_object.status + " " + "breathVertical");
-    todo_box.appendChild(todo_element);
+    todo_box_row_2.appendChild(todo_element);
 
     if(todo_object.status != "DELETED"){
         delete_button = document.createElement("button");
@@ -118,8 +134,18 @@ function createTodoElement(id, todo_object) {
         var del_span = document.createElement("span");
         del_span.setAttribute("class", "glyphicon glyphicon-remove");
         delete_button.appendChild(del_span);
-        todo_box.appendChild(delete_button);
+        todo_box_row_3.appendChild(delete_button);
     }
+
+    todo_box_row_1.setAttribute("align", "center");
+    todo_box_row_2.setAttribute("align", "left");
+    todo_box_row_3.setAttribute("align", "right");
+
+    todo_box_row.appendChild(todo_box_row_1);
+    todo_box_row.appendChild(todo_box_row_2);
+    todo_box_row.appendChild(todo_box_row_3);
+    todo_box_row.appendChild(todo_box_row_4);
+
     return todo_box;
 }
 
