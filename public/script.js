@@ -11,12 +11,15 @@ function refreshTodos(){
     getCompletedTodosAJAX();
     getDeletedTodosAJAX();
 }
+
+// LOADS ALL TYPE OF TODOS TO THE WEBPAGE ONLOAD.
 window.onload = function () {
     getActiveTodosAJAX();
     getDeletedTodosAJAX();
     getCompletedTodosAJAX();
 }
 
+// RETURNS THE TODOS WHICH ARE ACTIVE.
 function getActiveTodosAJAX() {
     console.log("get active todos ajax is running");
     var xhr = new XMLHttpRequest();
@@ -33,6 +36,7 @@ function getActiveTodosAJAX() {
     xhr.send(data = null);
 };
 
+// RETURNS THE TODOS WHICH ARE DELETED.
 function getDeletedTodosAJAX() {
     console.log("get deleted todos ajax is running");
     var xhr = new XMLHttpRequest();
@@ -49,6 +53,7 @@ function getDeletedTodosAJAX() {
     xhr.send(data = null);
 };
 
+// RETURNS THE TODOS WHICH ARE COMPLETED.
 function getCompletedTodosAJAX() {
     console.log("get completed todos ajax is running");
     var xhr = new XMLHttpRequest();
@@ -65,11 +70,11 @@ function getCompletedTodosAJAX() {
     xhr.send(data = null);
 };
 
+// ADD A NEW TODO.
 function addTodoElements(id, todos_data_json){
     var todos = JSON.parse(todos_data_json);
-
     var parent = document.getElementById(id);
-    // parent.innerText = todos_data_json;
+
     if(parent){
         parent.innerHTML = ""; //   not an good way to clear the screen
         Object.keys(todos).forEach(
@@ -81,8 +86,8 @@ function addTodoElements(id, todos_data_json){
     }
 }
 
+// CREATES A NEW TODO(WITH CHECKBOX AND DELETE BUTTONS) AND RETURNS IT.
 function createTodoElement(id, todo_object) {
-
     var todo_box = document.createElement("div");
     todo_box.setAttribute("class", "container");
 
@@ -149,6 +154,7 @@ function createTodoElement(id, todo_object) {
     return todo_box;
 }
 
+// ADDS A TODO TO THE FRONTEND (POST REQUEST).
 function addTodoAJAX() {
     var title = document.getElementById(NEW_TODO_INPUT_ID).value;
     var xhr = new XMLHttpRequest();
@@ -169,6 +175,7 @@ function addTodoAJAX() {
     refreshTodos();
 };
 
+// MAKES A PUT REQUEST AND PUT AN ACTIVE TODO IN THE COMPLETED TODOS.
 function completeTodoAJAX(id) {
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", "/api/todos/"+id, true);
@@ -189,6 +196,7 @@ function completeTodoAJAX(id) {
     refreshTodos();
 };
 
+// MAKES A DELETE REQUEST AND PUTS ACTIVE/COMPLETED TODOS IN DELETED TODOS.
 function deleteTodoAJAX(id) {
     var xhr = new XMLHttpRequest();
     xhr.open("DELETE", "/api/todos/"+id, true);
@@ -208,6 +216,7 @@ function deleteTodoAJAX(id) {
     refreshTodos();
 };
 
+// A FUNCTION TO HIDE AND SHOW COMPLETED TODOS.
 function hideCompletedTodos() {
     var x = document.getElementById("todos_list_div_completed");
     if (x.style.display === 'none') {
@@ -225,6 +234,7 @@ function hideCompletedTodos() {
     }
 };
 
+// A FUNCTION TO HIDE AND SHOW DELETED TODOS.
 function hideDeletedTodos() {
     var x = document.getElementById("todos_list_div_deleted");
     if (x.style.display === 'none') {
