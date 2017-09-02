@@ -8,8 +8,8 @@
 # Installing :
     1. Clone this repository on your machine.
     2. Open command prompt/terminal and navigate to the repository.
-    3. Run command npm install in the command prompt/terminal, which will install all the        dependencies and a node_modules folder will be created.
-    4. Run command node index.js or nodemon index.js to run the app. It should start the         server on the machine.
+    3. Run command npm install in the command prompt/terminal, which will install all the dependencies and a node_modules folder will be created.
+    4. Run command node index.js or nodemon index.js to run the app. It should start the server on the machine.
     5. Open google chrome and navigate to "http://localhost:3000" to access the application.
 
 # Built With :
