@@ -1,3 +1,4 @@
+// LOADING THE DEPENDENCIES
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
@@ -8,10 +9,12 @@ app.use(morgan('combined'));
 app.use("/", express.static(__dirname+"/public"));
 app.use("/", bodyParser.urlencoded({extended : false}));
 
+//  GET TODOS
 app.get("/api/todos", function (req, res) {
     res.json(todosDB.todos);
 });
 
+//  DELETE A TODO
 app.delete("/api/todos/:id", function (req, res) {
    var id = req.params.id;
    var todo = todosDB.todos[id];
@@ -23,6 +26,7 @@ app.delete("/api/todos/:id", function (req, res) {
    }
 });
 
+//  CREATE A TODO
 app.post("/api/todos", function (req, res) {
     var todo = req.body.title;
     if(!todo || todo == "" || todo.trim() == ""){
@@ -38,6 +42,7 @@ app.post("/api/todos", function (req, res) {
     }
 });
 
+//  EDIT A TODO
 app.put("/api/todos/:id", function (req, res) {
    var id =req.params.id;
    var todo = todosDB.todos[id];
@@ -57,6 +62,7 @@ app.put("/api/todos/:id", function (req, res) {
 
 });
 
+//  GET ACTIVE TODOS
 app.get("/api/todos/active", function (req, res) {
    var todos = todosDB.todos;
    var activeTodos={};
@@ -69,6 +75,7 @@ app.get("/api/todos/active", function (req, res) {
    res.json(activeTodos);
 });
 
+//  GET COMPLETED TODOS
 app.get("/api/todos/complete", function (req, res) {
     var todos = todosDB.todos;
     var completedTodos={};
@@ -81,6 +88,7 @@ app.get("/api/todos/complete", function (req, res) {
     res.json(completedTodos);
 });
 
+//  GET DELETED TODOS
 app.get("/api/todos/deleted", function (req, res) {
     var todos = todosDB.todos;
     var deletedTodos={};
@@ -93,6 +101,7 @@ app.get("/api/todos/deleted", function (req, res) {
     res.json(deletedTodos);
 });
 
+//  EDIT COMPLETED TODO
 app.put("/api/todos/complete/:id", function (req, res) {
    var id = req.params.id;
    var todo = todosDB.todos[id];
@@ -105,6 +114,7 @@ app.put("/api/todos/complete/:id", function (req, res) {
 
 });
 
+//  EDIT ACTIVE TODO
 app.put("/api/todos/active/:id", function (req, res) {
     var id = req.params.id;
     var todo = todosDB.todos[id];
@@ -120,5 +130,6 @@ app.put("/api/todos/active/:id", function (req, res) {
 var callback = function () {
     console.log("!!! Server is Running !!!");
 };
+
 
 app.listen(3000, callback);
