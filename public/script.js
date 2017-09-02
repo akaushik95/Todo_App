@@ -86,6 +86,7 @@ function addTodoElements(id, todos_data_json){
 function createTodoElement(id, todo_object) {
     var todo_box = document.createElement("div");
     todo_box.setAttribute("display", "inline");
+
     if(todo_object.status == "ACTIVE"){
         complete_checkbox = document.createElement("input");
         complete_checkbox.setAttribute("type", "checkbox");
