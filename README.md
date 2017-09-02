@@ -1,21 +1,28 @@
-# Todo App 
+# Todo App :
+    A simple todo application in which you can add a new todo, mark it as complete and delete
+    it once it's finished.
 
 # Features Built :
-  Backend endpoints :__
-    1. GET /api/todos__
-    2. POST /api/todos__
-    3. PUT /api/todos__
-    4. DELETE /api/todos__
-    5. GET /api/todos/active__
-    6. GET /api/todos/complete__
-    7. GET /api/todos/deleted__
-    8. PUT /api/todos/complete/:id__
-    9. PUT /api/todos/active/:id__
-    
-  Frontend :__
-    A html page to show Active, Completed and Deleted todos. The user can also add a new todo from the page.__ 
-    
+    # Backend endpoints :
+        1. GET /api/todos
+        2. POST /api/todos
+        3. PUT /api/todos
+        4. DELETE /api/todos
+        5. GET /api/todos/active
+        6. GET /api/todos/complete
+        7. GET /api/todos/deleted
+        8. PUT /api/todos/complete/:id
+        9. PUT /api/todos/active/:id
+
+    # Frontend : 
+        A html page to show Active, Completed and Deleted todos. The user can also add a new
+        todo from the page.
+
 # Features not built :
-  NA (all features mentioned in the assignment are implemented)
+    NA (all features mentioned in the assignment are implemented)
 
 # Known issues :
+    NA
+    
+# Author : 
+    ASHU KAUSHIK
