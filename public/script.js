@@ -113,6 +113,7 @@ function createTodoElement(id, todo_object) {
         complete_checkbox.setAttribute("value", "");
         complete_checkbox.setAttribute("onclick", "completeTodoAJAX("+id+")");
         complete_checkbox.style.background = "blue";
+        complete_checkbox.style.color = "green";
         todo_box_row_1.appendChild(complete_checkbox);
     }
     if(todo_object.status =="COMPLETED"){
@@ -138,6 +139,7 @@ function createTodoElement(id, todo_object) {
         delete_button.setAttribute("onclick", "deleteTodoAJAX("+id+")");
         var del_span = document.createElement("span");
         del_span.setAttribute("class", "glyphicon glyphicon-remove");
+        del_span.style.color = "red";
         delete_button.appendChild(del_span);
         todo_box_row_3.appendChild(delete_button);
     }
