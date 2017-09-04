@@ -4,6 +4,7 @@
   "description": "a simple todo application",
   "main": "index.js",
   "dependencies": {
+    "awesome-bootstrap-checkbox": "^1.0.0-alpha.5",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "morgan": "^1.8.2"

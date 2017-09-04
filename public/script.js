@@ -105,27 +105,43 @@ function createTodoElement(id, todo_object) {
     todo_box_row_3.setAttribute("class", "col-sm-3");
 
     var todo_box_row_4 = document.createElement("div");
-    todo_box_row_3.setAttribute("class", "col-sm-3");
+    todo_box_row_4.setAttribute("class", "col-sm-3");
 
     if(todo_object.status == "ACTIVE"){
-        complete_checkbox = document.createElement("input");
+        var complete_checkbox_div = document.createElement("div");
+        complete_checkbox_div.setAttribute("class", "checkbox checkbox-primary");
+        var complete_checkbox = document.createElement("input");
         complete_checkbox.setAttribute("type", "checkbox");
+        complete_checkbox.setAttribute("class", "styled");
+        complete_checkbox.setAttribute("id", "checkbox"+id);
         complete_checkbox.setAttribute("value", "");
         complete_checkbox.setAttribute("onclick", "completeTodoAJAX("+id+")");
-        complete_checkbox.style.background = "blue";
-        complete_checkbox.style.color = "green";
-        todo_box_row_1.appendChild(complete_checkbox);
+        var complete_checkbox_label = document.createElement("label");
+        complete_checkbox_label.setAttribute("value", "");
+        complete_checkbox_label.setAttribute("for", "checkbox"+id);
+        complete_checkbox_div.appendChild(complete_checkbox);
+        complete_checkbox_div.appendChild(complete_checkbox_label);
+        todo_box_row_1.appendChild(complete_checkbox_div);
     }
     if(todo_object.status =="COMPLETED"){
-        complete_checkbox = document.createElement("input");
+        var complete_checkbox_div = document.createElement("div");
+        complete_checkbox_div.setAttribute("class", "checkbox checkbox-primary");
+        var complete_checkbox = document.createElement("input");
         complete_checkbox.setAttribute("type", "checkbox");
-        complete_checkbox.setAttribute("value", "");
+        complete_checkbox.setAttribute("class", "styled");
+        complete_checkbox.setAttribute("id", "checkbox"+id);
         complete_checkbox.setAttribute("checked", "true");
         complete_checkbox.setAttribute("disabled", "true");
         complete_checkbox.setAttribute("onclick", "completeTodoAJAX("+id+")");
-        complete_checkbox.setAttribute("color", "blue");
-        todo_box_row_1.appendChild(complete_checkbox);
+        var complete_checkbox_label = document.createElement("label");
+        complete_checkbox_label.setAttribute("value", "");
+        complete_checkbox_label.setAttribute("for", "checkbox"+id);
+        complete_checkbox_div.appendChild(complete_checkbox);
+        complete_checkbox_div.appendChild(complete_checkbox_label);
+        todo_box_row_1.appendChild(complete_checkbox_div);
     }
+
+
     var todo_element = document.createElement("label");
     todo_element.innerText = todo_object.title;
     todo_element.setAttribute("data-id", id);   // setting a custom attribute
@@ -134,7 +150,7 @@ function createTodoElement(id, todo_object) {
     todo_box_row_2.appendChild(todo_element);
 
     if(todo_object.status != "DELETED"){
-        delete_button = document.createElement("button");
+        var delete_button = document.createElement("button");
         delete_button.setAttribute("class", "btn btn-default");
         delete_button.setAttribute("onclick", "deleteTodoAJAX("+id+")");
         var del_span = document.createElement("span");
