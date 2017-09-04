@@ -125,7 +125,7 @@ function createTodoElement(id, todo_object) {
     }
     if(todo_object.status =="COMPLETED"){
         var complete_checkbox_div = document.createElement("div");
-        complete_checkbox_div.setAttribute("class", "checkbox checkbox-primary");
+        complete_checkbox_div.setAttribute("class", "checkbox checkbox-success");
         var complete_checkbox = document.createElement("input");
         complete_checkbox.setAttribute("type", "checkbox");
         complete_checkbox.setAttribute("class", "styled");
@@ -175,6 +175,7 @@ function createTodoElement(id, todo_object) {
 // ADDS A TODO TO THE FRONTEND (POST REQUEST).
 function addTodoAJAX() {
     var title = document.getElementById(NEW_TODO_INPUT_ID).value;
+    document.getElementById(NEW_TODO_INPUT_ID).value = "";
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/todos", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
